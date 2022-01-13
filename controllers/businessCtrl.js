@@ -32,7 +32,7 @@ const createBusiness = async (req, res) => {
 };
 
 const updateBusiness = async (req, res) => {
-  const { businessId } = req.params;
+  const { businessId } = req.params.id;
   const business = await Business.findByIdAndUpdate(businessId, req.body, {
     new: true,
   });
@@ -40,7 +40,7 @@ const updateBusiness = async (req, res) => {
 };
 
 const deleteBusiness = async (req, res) => {
-  const { businessId } = req.params;
+  const { businessId } = req.params.id;
   await Business.findByIdAndDelete(businessId);
   res.status(200).json({ message: "Post Deleted Successfully" });
 };

@@ -21,7 +21,7 @@ const createCategory = async (req, res) => {
 };
 
 const updateCategory = async (req, res) => {
-  const { categoryId } = req.params;
+  const categoryId = req.params.id;
   const category = await Category.findByIdAndUpdate(categoryId, req.body, {
     new: true,
   });
@@ -29,7 +29,7 @@ const updateCategory = async (req, res) => {
 };
 
 const deleteCategory = async (req, res) => {
-  const { categoryId } = req.params;
+  const { categoryId } = req.params.id;
   await Category.findByIdAndDelete(categoryId);
   res.status(200).json({ message: "Category Deleted Successfully" });
 };
