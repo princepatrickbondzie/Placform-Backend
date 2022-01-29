@@ -7,7 +7,7 @@ const getBusinesses = async (req, res) => {
 
 const getBusiness = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
+  // console.log(id);
   const business = await Business.findById(id);
   res.status(200).json({ business });
 };
